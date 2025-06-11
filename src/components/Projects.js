@@ -22,8 +22,8 @@ export default function Projects() {
     {
       id: 3,
       name: "C&C Eatery - Jacksonville, FL",
-      description: "A task management web app built with React to create, update, and delete to-do items with local storage support.",
-      tech: ["React.js", "JavaScript", "CSS"],
+      description: "Jacksonville, FL Restaurant Website",
+      tech: ["HTML", "CSS", "JavaScript"],
       url: "https://fdsdigital.github.io/C-CEateryWebsiteRevised/",
       repo: "https://github.com/fdsdigital/C-CEateryWebsiteRevised"
     }
