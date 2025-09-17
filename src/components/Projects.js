@@ -1,8 +1,9 @@
 import React from 'react';
+import './Projects.css';
 
 export default function Projects() {
   const projects = [
-       {
+    {
       id: 2,
       name: "Soul Food Caterers - Brooklyn Location",
       description: "Brooklyn Location for the Soul Food Catering Business",
@@ -10,7 +11,7 @@ export default function Projects() {
       url: "https://fdsdigital.github.io/BrooklynSoulFoodCaterers/",
       repo: "https://github.com/fdsdigital/BrooklynSoulFoodCaterers/"
     },
-  {
+    {
       id: 1,
       name: "Soul Food Caterers - Queens Location",
       description: "Restaurant Website for a Soul Food Catering Business in Queens, NY",
@@ -18,7 +19,6 @@ export default function Projects() {
       url: "https://fdsdigital.github.io/QueensLocationSoulFoodCaterers/",
       repo: "https://github.com/fdsdigital/QueensLocationSoulFoodCaterers"
     },
- 
     {
       id: 3,
       name: "C&C Eatery - Jacksonville, FL",
@@ -29,28 +29,38 @@ export default function Projects() {
     }
   ];
 
-
   return (
-    <section>
-      <h1>My Projects</h1>
-      <p>Here are some projects I’ve built. Click on the project name to see it live, or check out the code on GitHub.</p>
+    <div className="projects-container">
+      <div className="projects-header">
+        <h1 className="projects-title">My Projects</h1>
+        <p className="projects-subtitle">
+          Here are some projects I've built. Click on the project name to see it live, or check out the code on GitHub.
+        </p>
+      </div>
 
-      <ul style={{ listStyleType: 'none', padding: 0 }}>
-        {projects.map(({ id, name, description, tech, url, repo }) => (
-          <li key={id} style={{ marginBottom: '2rem', padding: '1rem', border: '1px solid #ccc', borderRadius: '6px' }}>
-            <h2 style={{ marginBottom: '0.25rem' }}>
-              <a href={url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: '#007acc' }}>
-                {name}
+      <ul className="projects-grid">
+        {projects.map((project) => (
+          <li key={project.id} className="project-card">
+            <h2 className="project-title">
+              <a href={project.url} target="_blank" rel="noopener noreferrer" className="project-link">
+                {project.name}
               </a>
             </h2>
-            <p>{description}</p>
-            <p><strong>Tech used:</strong> {tech.join(', ')}</p>
-            <a href={repo} target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.9rem', color: '#555' }}>
+            <p className="project-description">{project.description}</p>
+            <div className="tech-used">
+              <span className="tech-label">Technologies Used:</span>
+              <div className="tech-tags">
+                {project.tech.map((tech, index) => (
+                  <span key={index} className="tech-tag">{tech}</span>
+                ))}
+              </div>
+            </div>
+            <a href={project.repo} target="_blank" rel="noopener noreferrer" className="github-link">
               View Code on GitHub
             </a>
           </li>
         ))}
       </ul>
-    </section>
+    </div>
   );
 }
